@@ -1,0 +1,19 @@
+import tensorflow as tf
+tf.config.list_physical_devices('GPU')
+sys_details = tf.sysconfig.get_build_info()
+cuda = sys_details["cuda_version"]
+cudnn = sys_details["cudnn_version"]
+print(cuda, cudnn)
+print(sys_details)
+
+python -c 'import json; print(json.load(open("/usr/local/cuda/version.json"))["cuda"]["version"])' # core one # not the one in cond env 
+
+
+https://medium.com/@dun.chwong/the-simple-guide-deep-learning-with-rtx-3090-cuda-cudnn-tensorflow-keras-pytorch-e88a2a8249bc
+
+conda install cudnn==8.2.1 # upgrades ur cuda and cudnn
+conda install tensorflow=2.6.2 -c conda-forge # running this should be enough # installs cuda = 11.2, cudnn=8 # python = 3.9 :/ 
+
+
+conda install tensorflow-gpu  # 2.4.1 not the best not the above cuda and cudnn version sadly # perf might take a hit
+
